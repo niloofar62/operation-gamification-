@@ -1,11 +1,10 @@
 import React from "react";
 
-function Crown() {
+function Crown(props) {
   return (
     <div>
       <p className="crown">👑</p>
-      <p className="jewel">💎</p>
-      <h6>Housekeeper Name</h6>
+      <h6>{props.housekeeperName}</h6>
     </div>
   );
 }
