@@ -10,6 +10,29 @@ const housekeeperData = [
   { id: 3, name: "Lily", scores: [3, 7, 9, 6, 9, 4, 10, 8] },
 ];
 
+// function averages(name, scores) {
+//   const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+//   console.log(avg);
+// }
+
+// function getAverages() {
+//   for (let i = 0; i < housekeeperData.length; i++) {
+//     let total = housekeeperData[i].scores.reduce((acc, c) => acc + c, 0);
+//     let averageScore = total / housekeeperData[i].scores.length;
+//     console.log(averageScore);
+//   }
+// }
+
+// function getAverages() {
+//   for (let i = 0; i < housekeeperData.length; i++) {
+//     let total = housekeeperData[i].scores.reduce((acc, c) => acc + c, 0);
+//     let averageScore = total / housekeeperData[i].scores.length;
+//     // console.log(averageScore)
+//     housekeeperData[i].scores = averageScore;
+//   }
+//   console.log(housekeeperData);
+// }
+
 function App() {
   const nameElements = housekeeperData.map((name) => {
     return <Crown housekeeperName={name.name} />;
