@@ -14,11 +14,33 @@ function App() {
   const nameElements = housekeeperData.map((name) => {
     return <Crown housekeeperName={name.name} />;
   });
+
+  function getAverages(housekeeperData) {
+    return housekeeperData.map((item) => {
+      const sum = item.scores.reduce((acc, cur) => acc + cur, 0);
+      const average = sum / item.scores.length;
+      return { ...item, average: average };
+    });
+  }
+
+  const updatedData = getAverages(housekeeperData);
+  console.log(updatedData);
+  const rankedList = updatedData.sort((a, b) => b.average - a.average);
+
+  // get max average and max average name
+  const maxAverage = rankedList[0].average;
+  const maxAverageName = rankedList[0].name;
+
+  // this returns all averages
+  // const averageElements = updatedData.map((item) => {
+  //   return <LeaderBoard name={item.name} average={item.average} />;
+  // });
+
   return (
     <div>
       <NavBar />
-      <LeaderBoard />
-      <p>{nameElements}</p>
+      <LeaderBoard name={maxAverageName} average={maxAverage} />
+      <section>{nameElements}</section>
       <Footer />
     </div>
   );
