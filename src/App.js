@@ -3,6 +3,7 @@ import PeopleList from "./components/PeopleList";
 import Person from "./components/Person";
 import { useState } from "react";
 import "./App.css";
+import GetData from "./GetData";
 // const data = [
 //   { id: 1, name: "John", scores: [9, 8, 10] },
 //   { id: 2, name: "Jane", scores: [7, 9, 8] },
@@ -25,6 +26,7 @@ function App() {
     <div>
       <PeopleList data={data} />
       <h1> Five Top Score</h1>
+      <GetData />
       <div className="top-five-box">
         <Person data={data} />
       </div>
