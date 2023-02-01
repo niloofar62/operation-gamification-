@@ -1,32 +1,38 @@
-import React from "react";
 import PeopleList from "./components/PeopleList";
 import Person from "./components/Person";
-import { useState } from "react";
-import "./App.css";
-import GetData from "./GetData";
-// const data = [
-//   { id: 1, name: "John", scores: [9, 8, 10] },
-//   { id: 2, name: "Jane", scores: [7, 9, 8] },
-//   { id: 3, name: "Bob", scores: [6, 8, 9] },
-// ];
+import { useState, useEffect } from "react";
 
 function App() {
-  const [data, setData] = useState([
-    { id: 1, name: "John", scores: [9, 8, 7, 6, 10] },
-    { id: 2, name: "Mary", scores: [7, 8, 9, 10, 8] },
-    { id: 3, name: "Jane", scores: [8, 8, 8, 8, 8] },
-    {
-      id: 4,
-      name: "Mike",
-      scores: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
-    },
-    { id: 5, name: "Emily", scores: [6, 7, 8, 9, 10] },
-  ]);
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    const response = await fetch(
+      "https://sheets.googleapis.com/v4/spreadsheets/1HPkB9M2r9xvsFSkj2JW4NWIt9Wu4R51o7GJ-UqVpT4E/values/A1:Z1000?key=AIzaSyDyVz5IVWZi-9fa4zocg4ZcE1MXMn5WTfk"
+    );
+    const json = await response.json();
+    let reshapedData = [];
+    for (const values of json.values) {
+      let name = values[0];
+      let score = parseInt(values[1], 10);
+      let found = reshapedData.find((person) => person.name === name);
+      if (found) {
+        found.scores.push(score);
+      } else {
+        reshapedData.push({ name, scores: [score] });
+      }
+    }
+    setData(reshapedData);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div>
       <PeopleList data={data} />
       <h1> Five Top Score</h1>
-      <GetData />
+      {/* <GetData /> */}
       <div className="top-five-box">
         <Person data={data} />
       </div>
