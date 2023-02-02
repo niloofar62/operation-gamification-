@@ -3,10 +3,16 @@ import Person from "./components/Person";
 import { useState, useEffect } from "react";
 import "./components/PeopleList.css";
 
+const API_KEY = "AIzaSyDyVz5IVWZi-9fa4zocg4ZcE1MXMn5WTfk";
+const SPREADSHEET_ID = "1HPkB9M2r9xvsFSkj2JW4NWIt9Wu4R51o7GJ-UqVpT4E";
+
+const API_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/A1:Z1000?key=${API_KEY}`;
+
 function App() {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
+    // const response = await fetch(API_URL);
     const response = await fetch(
       "https://sheets.googleapis.com/v4/spreadsheets/1HPkB9M2r9xvsFSkj2JW4NWIt9Wu4R51o7GJ-UqVpT4E/values/A1:Z1000?key=AIzaSyDyVz5IVWZi-9fa4zocg4ZcE1MXMn5WTfk"
     );
