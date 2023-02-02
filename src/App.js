@@ -2,6 +2,7 @@ import PeopleList from "./components/PeopleList";
 import Person from "./components/Person";
 import { useState, useEffect } from "react";
 import "./components/PeopleList.css";
+import AnotherPage from "./components/AnotherPage";
 
 const API_KEY = "AIzaSyDyVz5IVWZi-9fa4zocg4ZcE1MXMn5WTfk";
 const SPREADSHEET_ID = "1HPkB9M2r9xvsFSkj2JW4NWIt9Wu4R51o7GJ-UqVpT4E";
@@ -44,6 +45,8 @@ function App() {
       <div className="top-five-box">
         <Person data={data} />
       </div>
+      <h1>Sorted houskeeper</h1>
+      <AnotherPage data={data} />
     </div>
   );
 }
