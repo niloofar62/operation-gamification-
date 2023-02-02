@@ -10,7 +10,7 @@ function Person({ data }) {
   });
 
   // Get the top 5 people
-  const topFive = sortedData.slice(0, 5);
+  const topFive = sortedData.slice(0, 1);
 
   const top = topFive.map((person) => (
     <div key={person.id}>

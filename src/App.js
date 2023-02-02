@@ -30,8 +30,9 @@ function App() {
 
   return (
     <div>
+      <h1>Queen of Housekeeping Challenge</h1>
       <PeopleList data={data} />
-      <h1> Five Top Score</h1>
+      <h1> Queen </h1>
       {/* <GetData /> */}
       <div className="top-five-box">
         <Person data={data} />
