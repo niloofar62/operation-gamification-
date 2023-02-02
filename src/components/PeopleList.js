@@ -1,4 +1,5 @@
 import React from "react";
+import "./PeopleList.css";
 
 function PeopleList({ data }) {
   const people = data.map((person) => {

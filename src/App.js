@@ -1,6 +1,7 @@
 import PeopleList from "./components/PeopleList";
 import Person from "./components/Person";
 import { useState, useEffect } from "react";
+import "./components/PeopleList.css";
 
 function App() {
   const [data, setData] = useState([]);

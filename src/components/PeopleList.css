@@ -1,0 +1,34 @@
+.people-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  justify-items: center;
+}
+
+.person-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.jowel,
+.crown {
+  display: inline;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.extra-crown {
+  display: flex;
+  justify-content: center;
+}
