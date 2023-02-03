@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import "./components/PeopleList.css";
 import AnotherPage from "./components/AnotherPage";
 import AverageScore from "./components/AverageScore";
+import GameRules from "./components/GameRules";
 
 const API_KEY = "AIzaSyDyVz5IVWZi-9fa4zocg4ZcE1MXMn5WTfk";
 const SPREADSHEET_ID = "1HPkB9M2r9xvsFSkj2JW4NWIt9Wu4R51o7GJ-UqVpT4E";
@@ -12,6 +13,8 @@ const API_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}
 
 function App() {
   const [data, setData] = useState([]);
+  const [goal, setGoal] = useState();
+  const [rules, setRules] = useState("");
 
   const fetchData = async () => {
     // const response = await fetch(API_URL);
@@ -32,6 +35,9 @@ function App() {
     }
     setData(reshapedData);
   };
+  function handleGoalChange(e) {
+    setGoal(e.target.value);
+  }
 
   useEffect(() => {
     fetchData();
@@ -39,6 +45,8 @@ function App() {
 
   return (
     <div>
+      <h1>Game Rules</h1>
+      <GameRules />
       <h1>Queen of Housekeeping Challenge</h1>
       <PeopleList data={data} />
       <h1> Queen </h1>
@@ -49,7 +57,14 @@ function App() {
       <h1>Sorted houskeeper</h1>
       <AnotherPage data={data} />
       <h1> AverageScore</h1>
-      <AverageScore data={data} />
+
+      <input
+        type="number"
+        placeholder="Enter Goal Here..."
+        value={goal}
+        onChange={handleGoalChange}
+      />
+      <AverageScore data={data} goal={goal} />
     </div>
   );
 }

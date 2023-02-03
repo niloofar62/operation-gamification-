@@ -22,7 +22,7 @@ function AnotherPage({ data }) {
     return (
       <div key={person.id}>
         <p>Name: {person.name}</p>
-        <p>Average Score: {avg.toFixed(2)}</p>
+        <p>Average Score: {avg.toFixed(2) * 10}%</p>
       </div>
     );
   });
