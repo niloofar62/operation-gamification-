@@ -54,7 +54,7 @@ function App() {
       <div className="top-five-box">
         <Person data={data} />
       </div>
-      <h1>Sorted houskeeper</h1>
+      <h1>Sorted Housekeeper</h1>
       <AnotherPage data={data} />
       <h1> AverageScore</h1>
 
