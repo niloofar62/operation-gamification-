@@ -6,6 +6,7 @@ import Admin from "./About";
 import About from "./About";
 import AverageScore from "./components/AverageScore";
 import { Link, useLocation } from "react-router-dom";
+import GameRules from "./components/GameRules";
 
 const API_KEY = "AIzaSyDyVz5IVWZi-9fa4zocg4ZcE1MXMn5WTfk";
 const SPREADSHEET_ID = "1HPkB9M2r9xvsFSkj2JW4NWIt9Wu4R51o7GJ-UqVpT4E";
@@ -14,6 +15,8 @@ const API_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}
 
 function App() {
   const [data, setData] = useState([]);
+  const [goal, setGoal] = useState();
+  const [rules, setRules] = useState("");
 
   const fetchData = async () => {
     // const response = await fetch(API_URL);
@@ -34,6 +37,9 @@ function App() {
     }
     setData(reshapedData);
   };
+  function handleGoalChange(e) {
+    setGoal(e.target.value);
+  }
 
   useEffect(() => {
     fetchData();
@@ -85,6 +91,7 @@ function App() {
   // export default App;
   return (
     <div>
+      {/* <<<<<<< HEAD */}
       <nav>
         <Link to="/">
           <button>Home</button>
@@ -93,20 +100,32 @@ function App() {
           <button>About</button>
         </Link>
       </nav>
+      {aboutLocation.pathname === "/about" && <About />}
+      {/* {adminLocation.pathname === "/admin" && <Admin />} */}
       {mainLocation.pathname === "/" && (
         <>
+          <h1>Game Rules</h1>
+          <GameRules />
+          <h1>Queen of Housekeeping Challenge</h1>
           <PeopleList data={data} />
-          <h1> Top Score</h1>
+          <h1> Queen </h1>
+          {/* <GetData /> */}
           <div className="top-five-box">
             <Person data={data} />
           </div>
-          <h1>Sorted houskeeper</h1>
-          <h1>AverageScore</h1>
-          <input type="number" placeholder="Enter Goal Here..." />
+          {/* <h1>Sorted houskeeper</h1>
+          <AnotherPage data={data} /> */}
+          <h1> AverageScore</h1>
+
+          <input
+            type="number"
+            placeholder="Enter Goal Here..."
+            value={goal}
+            onChange={handleGoalChange}
+          />
+          <AverageScore data={data} goal={goal} />
         </>
       )}
-      {aboutLocation.pathname === "/about" && <About />}
-      {/* {adminLocation.pathname === "/admin" && <Admin />} */}
     </div>
   );
 }
