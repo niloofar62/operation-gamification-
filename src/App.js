@@ -2,9 +2,12 @@ import PeopleList from "./components/PeopleList";
 import Person from "./components/Person";
 import { useState, useEffect } from "react";
 import "./components/PeopleList.css";
-import AnotherPage from "./components/AnotherPage";
+import Admin from "./About";
+import About from "./About";
 import AverageScore from "./components/AverageScore";
+import { Link, useLocation } from "react-router-dom";
 import GameRules from "./components/GameRules";
+import AnotherPage from "./components/AnotherPage";
 
 const API_KEY = "AIzaSyDyVz5IVWZi-9fa4zocg4ZcE1MXMn5WTfk";
 const SPREADSHEET_ID = "1HPkB9M2r9xvsFSkj2JW4NWIt9Wu4R51o7GJ-UqVpT4E";
@@ -43,103 +46,91 @@ function App() {
     fetchData();
   }, []);
 
+  const mainLocation = useLocation();
+  const aboutLocation = useLocation();
+  const adminLocation = useLocation();
+
+  //   return (
+  //     <div>
+  //       {/* <NavBar />
+  //       <h1>Game Rules</h1>
+  //       <GameRules /> */}
+  //       <nav>
+  //         <Link to="/">
+  //           <button>Home</button>
+  //         </Link>
+  //         <Link to="/about">
+  //           <button>About</button>
+  //         </Link>
+  //         {aboutLocation.pathname === "/about" && <About />}
+  //         {/* <Link to="/anotherpage">
+  //           <button>AnotherPage</button>
+  //         {/* </Link> */}
+  //         {/* {location.pathname === "/anotherpage" && <AnotherPage />} */}
+  //       </nav>
+  //       <PeopleList data={data} />
+  //       <h1> Top Score</h1>
+  //       {/* <GetData /> */}
+  //       <div className="top-five-box">
+  //         <Person data={data} />
+  //       </div>
+  //       <h1>Sorted houskeeper</h1>
+  //       {/* <AnotherPage data={data} /> */}
+  //       <h1>AverageScore</h1>
+  //       {/* <input type="number" value={goal} onChange={handleGoalChange} /> */}
+  //       <input
+  //         type="number"
+  //         placeholder="Enter Goal Here..."
+  //         // value={goal}
+  //         // onChange={handleGoalChange}
+  //       />
+  //       {/* <AverageScore data={data} goal={goal} /> */}
+  //     </div>
+  //   );
+  // }
+
+  // export default App;
   return (
     <div>
-      <h1>Game Rules</h1>
-      <GameRules />
-      <h1>Queen of Housekeeping Challenge</h1>
-      <PeopleList data={data} />
-      <h1> Queen </h1>
-      {/* <GetData /> */}
-      <div className="top-five-box">
-        <Person data={data} />
-      </div>
-      <h1>Sorted Housekeeper</h1>
-      <AnotherPage data={data} />
-      <h1> AverageScore</h1>
 
-      <input
-        type="number"
-        placeholder="Enter Goal Here..."
-        value={goal}
-        onChange={handleGoalChange}
-      />
-      <AverageScore data={data} goal={goal} />
+      {/* <<<<<<< HEAD */}
+      <nav>
+        <Link to="/">
+          <button>Home</button>
+        </Link>
+        <Link to="/about">
+          <button>About</button>
+        </Link>
+      </nav>
+      {aboutLocation.pathname === "/about" && <About />}
+      {/* {adminLocation.pathname === "/admin" && <Admin />} */}
+      {mainLocation.pathname === "/" && (
+        <>
+          <h1>Game Rules</h1>
+          <GameRules />
+          <h1>Queen of Housekeeping Challenge</h1>
+          <PeopleList data={data} />
+          <h1> Queen </h1>
+          {/* <GetData /> */}
+          <div className="top-five-box">
+            <Person data={data} />
+          </div>
+          <h1>Sorted houskeeper</h1>
+          <AnotherPage data={data} />
+          <h1> AverageScore</h1>
+
+          <input
+            type="number"
+            placeholder="Enter Goal Here..."
+            value={goal}
+            onChange={handleGoalChange}
+          />
+          <AverageScore data={data} goal={goal} />
+        </>
+      )}
+
     </div>
   );
 }
 
 export default App;
-
-// import React from "react";
-// import NavBar from "./components/NavBar";
-// import LeaderBoard from "./components/LeaderBoard";
-// import Crown from "./components/Crown";
-// import Footer from "./components/Footer";
-
-// const housekeeperData = [
-//   { id: 1, name: "Peli", scores: [5, 7, 2, 9, 9, 10, 4, 8] },
-//   { id: 2, name: "Ada", scores: [7, 8, 9, 10, 5, 7, 2, 1, 0] },
-//   { id: 3, name: "Lily", scores: [3, 7, 9, 6, 9, 4, 10, 8] },
-// ];
-
-// // function averages(name, scores) {
-// //   const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
-// //   console.log(avg);
-// // }
-
-// // function getAverages() {
-// //   for (let i = 0; i < housekeeperData.length; i++) {
-// //     let total = housekeeperData[i].scores.reduce((acc, c) => acc + c, 0);
-// //     let averageScore = total / housekeeperData[i].scores.length;
-// //     console.log(averageScore);
-// //   }
-// // }
-
-// // function getAverages() {
-// //   for (let i = 0; i < housekeeperData.length; i++) {
-// //     let total = housekeeperData[i].scores.reduce((acc, c) => acc + c, 0);
-// //     let averageScore = total / housekeeperData[i].scores.length;
-// //     // console.log(averageScore)
-// //     housekeeperData[i].scores = averageScore;
-// //   }
-// //   console.log(housekeeperData);
-// // }
-
-// function App() {
-//   const nameElements = housekeeperData.map((name) => {
-//     return <Crown housekeeperName={name.name} />;
-//   });
-
-//   function getAverages(housekeeperData) {
-//     return housekeeperData.map((item) => {
-//       const sum = item.scores.reduce((acc, cur) => acc + cur, 0);
-//       const average = sum / item.scores.length;
-//       return { ...item, average: average };
-//     });
-//   }
-
-//   const updatedData = getAverages(housekeeperData);
-//   console.log(updatedData);
-//   const rankedList = updatedData.sort((a, b) => b.average - a.average);
-
-//   // get max average and max average name
-//   const maxAverage = rankedList[0].average;
-//   const maxAverageName = rankedList[0].name;
-
-//   // this returns all averages
-//   // const averageElements = updatedData.map((item) => {
-//   //   return <LeaderBoard name={item.name} average={item.average} />;
-//   // });
-
-//   return (
-//     <div>
-//       <NavBar />
-//       <LeaderBoard name={maxAverageName} average={maxAverage} />
-//       <section>{nameElements}</section>
-//       <Footer />
-//     </div>
-//   );
-// }
-
-// export default App;
