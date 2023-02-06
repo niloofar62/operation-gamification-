@@ -3,19 +3,19 @@ import "./PeopleList.css";
 
 function PeopleList({ data }) {
   const people = data.map((person) => {
-    let jowelsEarned = 0;
+    let jewelsEarned = 0;
     const jewels = person.scores.filter((score) => score > 8);
-    jowelsEarned = jewels.length;
+    jewelsEarned = jewels.length;
     console.log(person.name, jewels);
 
     return (
       <div className="person-container" key={person.id}>
-        {Array.from({ length: jowelsEarned }).map(() => "💎")}
-        {/* {jowelsEarned > 0 && <p className="jowel">💎</p>} */}
-        {/* {jowelsEarned >= 5 && <p className="extra-crown">👑</p>} */}
-        {jowelsEarned >= 5 && (
+        {Array.from({ length: jewelsEarned }).map(() => "💎")}
+        {/* {jewelsEarned > 0 && <p className="jowel">💎</p>} */}
+        {/* {jewelsEarned >= 5 && <p className="extra-crown">👑</p>} */}
+        {jewelsEarned >= 5 && (
           <div className="extra-crown">
-            {Array.from({ length: Math.floor(jowelsEarned / 5) }, (_, i) => (
+            {Array.from({ length: Math.floor(jewelsEarned / 5) }, (_, i) => (
               <p key={i}>👑</p>
             ))}
           </div>

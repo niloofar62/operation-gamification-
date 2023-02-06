@@ -92,6 +92,7 @@ function App() {
   // export default App;
   return (
     <div>
+
       {/* <<<<<<< HEAD */}
       <nav>
         <Link to="/">
@@ -127,6 +128,7 @@ function App() {
           <AverageScore data={data} goal={goal} />
         </>
       )}
+
     </div>
   );
 }
