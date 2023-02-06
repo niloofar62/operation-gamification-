@@ -1,8 +1,11 @@
 import React from "react";
 
-function About() {
+// import PeopleList from "./components/PeopleList";
+
+function Display(props) {
   return (
     <div>
+      {/* <PeopleList data={data} /> */}
       <h1>About us</h1>
       <p>This is a page about us</p>
       <h3>Contact Us</h3>
@@ -10,4 +13,4 @@ function About() {
     </div>
   );
 }
-export default About;
+export default Display;

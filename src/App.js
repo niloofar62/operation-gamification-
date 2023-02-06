@@ -2,8 +2,8 @@ import PeopleList from "./components/PeopleList";
 import Person from "./components/Person";
 import { useState, useEffect } from "react";
 import "./components/PeopleList.css";
-import Admin from "./About";
-import About from "./About";
+// import Admin from "./About";
+import Display from "./Display";
 import AverageScore from "./components/AverageScore";
 import { Link, useLocation } from "react-router-dom";
 import GameRules from "./components/GameRules";
@@ -13,11 +13,12 @@ const API_KEY = "AIzaSyDyVz5IVWZi-9fa4zocg4ZcE1MXMn5WTfk";
 const SPREADSHEET_ID = "1HPkB9M2r9xvsFSkj2JW4NWIt9Wu4R51o7GJ-UqVpT4E";
 
 const API_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/A1:Z1000?key=${API_KEY}`;
-
+const rules1 =
+  "Earn jewels to fill your crown! Each survey with a 9-10 Room Cleanliness = 1 jewel, 5 jewels = $25. Whoever has the most jewels at the end of each month will be named,THE QUEEN OF HouseKEEPING,And will win an additional $50!";
 function App() {
   const [data, setData] = useState([]);
   const [goal, setGoal] = useState();
-  const [rules, setRules] = useState("");
+  const [rules, setRules] = useState(rules1);
 
   const fetchData = async () => {
     // const response = await fetch(API_URL);
@@ -46,8 +47,8 @@ function App() {
     fetchData();
   }, []);
 
-  const mainLocation = useLocation();
-  const aboutLocation = useLocation();
+  // const mainLocation = useLocation();
+  const displayLocation = useLocation();
   const adminLocation = useLocation();
 
   //   return (
@@ -92,22 +93,32 @@ function App() {
   // export default App;
   return (
     <div>
-
       {/* <<<<<<< HEAD */}
       <nav>
         <Link to="/">
-          <button>Home</button>
+          <button>Admin</button>
         </Link>
-        <Link to="/about">
-          <button>About</button>
+        <Link to="/display">
+          <button>Display</button>
         </Link>
       </nav>
-      {aboutLocation.pathname === "/about" && <About />}
+      {displayLocation.pathname === "/display" && (
+        <>
+          <h1>Queen of Housekeeping Challenge</h1>
+          <PeopleList data={data} />
+          <GameRules rules_data={rules} location="display" />
+          <h1> Queen </h1>
+          <div className="top-five-box">
+            <Person data={data} />
+          </div>
+          <AverageScore data={data} goal={goal} />
+        </>
+      )}
       {/* {adminLocation.pathname === "/admin" && <Admin />} */}
-      {mainLocation.pathname === "/" && (
+      {adminLocation.pathname === "/" && (
         <>
           <h1>Game Rules</h1>
-          <GameRules />
+          <GameRules rules_data={rules} location="admin" />
           <h1>Queen of Housekeeping Challenge</h1>
           <PeopleList data={data} />
           <h1> Queen </h1>
@@ -128,7 +139,6 @@ function App() {
           <AverageScore data={data} goal={goal} />
         </>
       )}
-
     </div>
   );
 }
