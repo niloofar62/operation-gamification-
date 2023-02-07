@@ -51,6 +51,9 @@ function App() {
   const displayLocation = useLocation();
   const adminLocation = useLocation();
 
+  const handleSubmit = (newValue) => {
+    setRules(newValue);
+  };
   //   return (
   //     <div>
   //       {/* <NavBar />
@@ -93,7 +96,6 @@ function App() {
   // export default App;
   return (
     <div>
-      {/* <<<<<<< HEAD */}
       <nav>
         <Link to="/">
           <button>Admin</button>
@@ -106,7 +108,9 @@ function App() {
         <>
           <h1>Queen of Housekeeping Challenge</h1>
           <PeopleList data={data} />
-          <GameRules rules_data={rules} location="display" />
+          <h1>Game Rules</h1>
+          <Display rules={rules} location="display" />
+          {/* <GameRules rules_data={rules} location="display" /> */}
           <h1> Queen </h1>
           <div className="top-five-box">
             <Person data={data} />
@@ -118,7 +122,11 @@ function App() {
       {adminLocation.pathname === "/" && (
         <>
           <h1>Game Rules</h1>
-          <GameRules rules_data={rules} location="admin" />
+          <GameRules
+            onSubmit={handleSubmit}
+            rules_data={rules}
+            location="admin"
+          />
           <h1>Queen of Housekeeping Challenge</h1>
           <PeopleList data={data} />
           <h1> Queen </h1>
