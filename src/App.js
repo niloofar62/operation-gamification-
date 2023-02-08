@@ -1,6 +1,6 @@
 import PeopleList from "./components/PeopleList";
 import Person from "./components/Person";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./components/PeopleList.css";
 // import Admin from "./About";
 import Display from "./Display";
@@ -8,6 +8,7 @@ import AverageScore from "./components/AverageScore";
 import { Link, useLocation } from "react-router-dom";
 import GameRules from "./components/GameRules";
 import AnotherPage from "./components/AnotherPage";
+import Form from "./components/Form";
 
 const API_KEY = "AIzaSyDyVz5IVWZi-9fa4zocg4ZcE1MXMn5WTfk";
 const SPREADSHEET_ID = "1HPkB9M2r9xvsFSkj2JW4NWIt9Wu4R51o7GJ-UqVpT4E";
@@ -15,10 +16,40 @@ const SPREADSHEET_ID = "1HPkB9M2r9xvsFSkj2JW4NWIt9Wu4R51o7GJ-UqVpT4E";
 const API_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/A1:Z1000?key=${API_KEY}`;
 const rules1 =
   "Earn jewels to fill your crown! Each survey with a 9-10 Room Cleanliness = 1 jewel, 5 jewels = $25. Whoever has the most jewels at the end of each month will be named,THE QUEEN OF HouseKEEPING,And will win an additional $50!";
+
 function App() {
   const [data, setData] = useState([]);
   const [goal, setGoal] = useState();
   const [rules, setRules] = useState(rules1);
+
+  const scriptUrl =
+    "https://script.google.com/macros/s/AKfycbx_BXbjXFqhDe8nzkrIS3_JdxCIsSTZc3MC3dytZ1rjoaceLTo2nKRDZTp7Ymyk_gGS/exec";
+
+  // state variables for name and score
+  // const [name, setName] = useState("");
+  // const [score, setScore] = useState("");
+
+  // const handle submit of form
+  // const handleSubmit = (e) => {
+  //     e.preventDefault();
+  //     console.log(name);
+  //     setName('');
+  //     setScore('');
+  // }
+
+  // const formRef = useRef(null);
+  // const [loading, setLoading] = useState(false);
+  // const handleDataSubmit = (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+
+  //   fetch(scriptUrl, { method: "POST", body: new FormData(formRef.current) })
+  //     .then((res) => {
+  //       console.log("SUCCESSFULLY SUBMITTED");
+  //       setLoading(false);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   const fetchData = async () => {
     // const response = await fetch(API_URL);
@@ -54,46 +85,7 @@ function App() {
   const handleSubmit = (newValue) => {
     setRules(newValue);
   };
-  //   return (
-  //     <div>
-  //       {/* <NavBar />
-  //       <h1>Game Rules</h1>
-  //       <GameRules /> */}
-  //       <nav>
-  //         <Link to="/">
-  //           <button>Home</button>
-  //         </Link>
-  //         <Link to="/about">
-  //           <button>About</button>
-  //         </Link>
-  //         {aboutLocation.pathname === "/about" && <About />}
-  //         {/* <Link to="/anotherpage">
-  //           <button>AnotherPage</button>
-  //         {/* </Link> */}
-  //         {/* {location.pathname === "/anotherpage" && <AnotherPage />} */}
-  //       </nav>
-  //       <PeopleList data={data} />
-  //       <h1> Top Score</h1>
-  //       {/* <GetData /> */}
-  //       <div className="top-five-box">
-  //         <Person data={data} />
-  //       </div>
-  //       <h1>Sorted houskeeper</h1>
-  //       {/* <AnotherPage data={data} /> */}
-  //       <h1>AverageScore</h1>
-  //       {/* <input type="number" value={goal} onChange={handleGoalChange} /> */}
-  //       <input
-  //         type="number"
-  //         placeholder="Enter Goal Here..."
-  //         // value={goal}
-  //         // onChange={handleGoalChange}
-  //       />
-  //       {/* <AverageScore data={data} goal={goal} /> */}
-  //     </div>
-  //   );
-  // }
 
-  // export default App;
   return (
     <div>
       <nav>
@@ -127,6 +119,11 @@ function App() {
             rules_data={rules}
             location="admin"
           />
+          <h1>Input Data</h1>
+          <Form onSubmit={handleDataSubmit} ref={formRef} name="google-sheet" />
+          {/* <div className="input-style">
+
+            <input type="submit" value={loading ? "Loading..." : "SEND MESSAGE"} /> */}
           <h1>Queen of Housekeeping Challenge</h1>
           <PeopleList data={data} />
           <h1> Queen </h1>
