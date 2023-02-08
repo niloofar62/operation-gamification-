@@ -1,5 +1,6 @@
 import React from "react";
 import "./PeopleList.css";
+import five_jewel_crown from "../five_jewel_crown.svg";
 import image1 from "../assets/image1.png";
 import newCrown from "../assets/newCrown.png";
 
@@ -16,7 +17,8 @@ function PeopleList({ data }) {
         images.push(
           <img
             // src="path/to/five-or-more-jowels-image.png"
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/066/351/original/5jewelCrown.png?1675786668"
+            // src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/066/351/original/5jewelCrown.png?1675786668"
+            src={five_jewel_crown}
             alt="five or more jowels"
           />
         );
