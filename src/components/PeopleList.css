@@ -20,7 +20,6 @@ img {
   width: 50px;
 }
 
-
 .name {
   font-size: 20px;
   font-weight: bold;
@@ -33,14 +32,4 @@ img {
   display: inline;
   font-size: 30px;
   margin-bottom: 10px;
-}
-
-/* .extra-crown {
-  display: flex;
-  justify-content: center;
-  font-size: 2em;
-}
-
-.image{
-  fill:"none";
 }
