@@ -26,30 +26,30 @@ function App() {
     "https://script.google.com/macros/s/AKfycbx_BXbjXFqhDe8nzkrIS3_JdxCIsSTZc3MC3dytZ1rjoaceLTo2nKRDZTp7Ymyk_gGS/exec";
 
   // state variables for name and score
-  // const [name, setName] = useState("");
-  // const [score, setScore] = useState("");
+  const [name, setName] = useState("");
+  const [score, setScore] = useState("");
 
   // const handle submit of form
-  // const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     console.log(name);
-  //     setName('');
-  //     setScore('');
-  // }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(name);
+    setName("");
+    setScore("");
+  };
 
-  // const formRef = useRef(null);
-  // const [loading, setLoading] = useState(false);
-  // const handleDataSubmit = (e) => {
-  //   e.preventDefault();
-  //   setLoading(true);
+  const formRef = useRef(null);
+  const [loading, setLoading] = useState(false);
+  const handleDataSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-  //   fetch(scriptUrl, { method: "POST", body: new FormData(formRef.current) })
-  //     .then((res) => {
-  //       console.log("SUCCESSFULLY SUBMITTED");
-  //       setLoading(false);
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
+    fetch(scriptUrl, { method: "POST", body: new FormData(formRef.current) })
+      .then((res) => {
+        console.log("SUCCESSFULLY SUBMITTED");
+        setLoading(false);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const fetchData = async () => {
     // const response = await fetch(API_URL);
@@ -82,9 +82,9 @@ function App() {
   const displayLocation = useLocation();
   const adminLocation = useLocation();
 
-  const handleSubmit = (newValue) => {
-    setRules(newValue);
-  };
+  // const handleSubmit = (newValue) => {
+  //   setRules(newValue);
+  // };
 
   return (
     <div>
@@ -120,10 +120,14 @@ function App() {
             location="admin"
           />
           <h1>Input Data</h1>
+          {/* <Form /> */}
           <Form onSubmit={handleDataSubmit} ref={formRef} name="google-sheet" />
-          {/* <div className="input-style">
-
-            <input type="submit" value={loading ? "Loading..." : "SEND MESSAGE"} /> */}
+          <div className="input-style">
+            <input
+              type="submit"
+              value={loading ? "Loading..." : "SEND MESSAGE"}
+            />
+          </div>
           <h1>Queen of Housekeeping Challenge</h1>
           <PeopleList data={data} />
           <h1> Queen </h1>
