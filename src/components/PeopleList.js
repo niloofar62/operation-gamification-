@@ -16,9 +16,12 @@ function PeopleList({ data }) {
       if (jowelsEarned >= 5) {
         images.push(
           <img
+           // className="crown"
+            //src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/066/351/original/5jewelCrown.png?1675786668"
             // src="path/to/five-or-more-jowels-image.png"
             // src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/066/351/original/5jewelCrown.png?1675786668"
-            src={five_jewel_crown}
+           // src={five_jewel_crown}
+
             alt="five or more jowels"
           />
         );
