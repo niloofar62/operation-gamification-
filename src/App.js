@@ -22,39 +22,37 @@ function App() {
   const [goal, setGoal] = useState();
   const [rules, setRules] = useState(rules1);
 
-  const scriptUrl =
-    "https://script.google.com/macros/s/AKfycbx_BXbjXFqhDe8nzkrIS3_JdxCIsSTZc3MC3dytZ1rjoaceLTo2nKRDZTp7Ymyk_gGS/exec";
-
   // state variables for name and score
   const [name, setName] = useState("");
   const [score, setScore] = useState("");
 
-  // const handle submit of form
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(name);
-    setName("");
-    setScore("");
-  };
+  // // const handle submit of form
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(name);
+  //   setName("");
+  //   setScore("");
+  // };
 
-  const formRef = useRef(null);
-  const [loading, setLoading] = useState(false);
-  const handleDataSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
+  // const formRef = useRef(null);
+  // const [loading, setLoading] = useState(false);
+  // const handleDataSubmit = (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
 
-    fetch(scriptUrl, { method: "POST", body: new FormData(formRef.current) })
-      .then((res) => {
-        console.log("SUCCESSFULLY SUBMITTED");
-        setLoading(false);
-      })
-      .catch((err) => console.log(err));
-  };
+  //   fetch(scriptUrl, { method: "POST", body: new FormData(formRef.current) })
+  //     .then((res) => {
+  //       console.log("SUCCESSFULLY SUBMITTED");
+  //       setLoading(false);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   const fetchData = async () => {
     // const response = await fetch(API_URL);
     const response = await fetch(
-      "https://sheets.googleapis.com/v4/spreadsheets/1HPkB9M2r9xvsFSkj2JW4NWIt9Wu4R51o7GJ-UqVpT4E/values/A1:Z1000?key=AIzaSyDyVz5IVWZi-9fa4zocg4ZcE1MXMn5WTfk"
+      // "https://sheets.googleapis.com/v4/spreadsheets/1HPkB9M2r9xvsFSkj2JW4NWIt9Wu4R51o7GJ-UqVpT4E/values/A1:Z1000?key=AIzaSyDyVz5IVWZi-9fa4zocg4ZcE1MXMn5WTfk"
+      "https://sheets.googleapis.com/v4/spreadsheets/1vXpLAfPutTivi97Wu3PzJB5ZManHGttirB9by_a_Aw8/values/B2:Z1000?key=AIzaSyDyVz5IVWZi-9fa4zocg4ZcE1MXMn5WTfk"
     );
     const json = await response.json();
     let reshapedData = [];
@@ -82,9 +80,9 @@ function App() {
   const displayLocation = useLocation();
   const adminLocation = useLocation();
 
-  // const handleSubmit = (newValue) => {
-  //   setRules(newValue);
-  // };
+  const handleSubmit = (newValue) => {
+    setRules(newValue);
+  };
 
   return (
     <div>
@@ -120,14 +118,9 @@ function App() {
             location="admin"
           />
           <h1>Input Data</h1>
-          {/* <Form /> */}
-          <Form onSubmit={handleDataSubmit} ref={formRef} name="google-sheet" />
-          <div className="input-style">
-            <input
-              type="submit"
-              value={loading ? "Loading..." : "SEND MESSAGE"}
-            />
-          </div>
+          <Form />
+          {/* <Form onSubmit={handleDataSubmit} ref={formRef} name="google-sheet" /> */}
+
           <h1>Queen of Housekeeping Challenge</h1>
           <PeopleList data={data} />
           <h1> Queen </h1>
