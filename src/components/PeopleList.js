@@ -1,5 +1,8 @@
 import React from "react";
 import "./PeopleList.css";
+import five_jewel_crown from "../five_jewel_crown.svg";
+import image1 from "../assets/image1.png";
+import newCrown from "../assets/newCrown.png";
 
 function PeopleList({ data }) {
   const people = data.map((person) => {
@@ -13,8 +16,12 @@ function PeopleList({ data }) {
       if (jowelsEarned >= 5) {
         images.push(
           <img
-            className="crown"
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/066/351/original/5jewelCrown.png?1675786668"
+           // className="crown"
+            //src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/066/351/original/5jewelCrown.png?1675786668"
+            // src="path/to/five-or-more-jowels-image.png"
+            // src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/066/351/original/5jewelCrown.png?1675786668"
+           // src={five_jewel_crown}
+
             alt="five or more jowels"
           />
         );
@@ -50,7 +57,8 @@ function PeopleList({ data }) {
         images.push(
           // <img src="path/to/zero-jowels-image.png" alt="zero jowels" />
           <img
-            src="https://adad18.slack.com/files/U03SXQ4J8LD/F04NHCX73S5/1_jewel_crown.svg"
+            src={image1}
+            // src="https://adad18.slack.com/files/U03SXQ4J8LD/F04NHCX73S5/1_jewel_crown.svg"
             alt="one jowels"
           />
         );
@@ -58,7 +66,8 @@ function PeopleList({ data }) {
       } else if (jowelsEarned === 0) {
         images.push(
           <img
-            src="https://adad18.slack.com/files/U03SXQ4J8LD/F04NHCX73S5/1_jewel_crown.svg"
+            src={newCrown}
+            // src="https://adad18.slack.com/files/U03SXQ4J8LD/F04NHCX73S5/1_jewel_crown.svg"
             alt="zero jowels"
           />
         );
@@ -69,7 +78,7 @@ function PeopleList({ data }) {
     return (
       <div className="person-container" key={person.id}>
         {images}
-        <p className="crown">👑</p>
+        {/* <p className="crown">👑</p> */}
         <p className="name">{person.name}</p>
       </div>
     );

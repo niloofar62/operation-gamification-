@@ -5,10 +5,12 @@ import "./components/PeopleList.css";
 // import Admin from "./About";
 import Display from "./Display";
 import AverageScore from "./components/AverageScore";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Route, useLocation } from "react-router-dom";
 import GameRules from "./components/GameRules";
 import AnotherPage from "./components/AnotherPage";
 import Form from "./components/Form";
+//import LoginForm from "./components/LoginForm";
+
 
 const API_KEY = "AIzaSyDyVz5IVWZi-9fa4zocg4ZcE1MXMn5WTfk";
 const SPREADSHEET_ID = "1HPkB9M2r9xvsFSkj2JW4NWIt9Wu4R51o7GJ-UqVpT4E";
@@ -79,10 +81,19 @@ function App() {
   // const mainLocation = useLocation();
   const displayLocation = useLocation();
   const adminLocation = useLocation();
+  const loginLocation = useLocation();
 
   const handleSubmit = (newValue) => {
     setRules(newValue);
   };
+
+
+//set to start value of false, when this functionality is put in
+//  const [isAuthenticated, setIsAuthenticated] = useState(true);
+
+ // const handleLogin = () => {
+ //   setIsAuthenticated(true);
+ // };
 
   return (
     <div>
@@ -93,7 +104,20 @@ function App() {
         <Link to="/display">
           <button>Display</button>
         </Link>
+        <Link to="/login">
+          <button>Login</button>
+        </Link>
       </nav>
+     // {loginLocation.pathname === "/login" && (
+       // <>
+        //  {isAuthenticated ? (
+         //   <p>Welcome! You are logged in.</p>
+         // ) : (
+        //    <LoginForm onLogin={handleLogin} location="login" />
+        //  )}
+       // </>
+      //)}
+
       {displayLocation.pathname === "/display" && (
         <>
           <h1>Queen of Housekeeping Challenge</h1>

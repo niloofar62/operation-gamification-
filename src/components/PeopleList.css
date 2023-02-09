@@ -9,16 +9,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(207, 241, 103, 0.7);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+img {
+  height: 50px;
+  width: 50px;
 }
 
 .name {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
+  margin-top: 10px
 }
 
 .jowel,
@@ -26,10 +32,4 @@
   display: inline;
   font-size: 30px;
   margin-bottom: 10px;
-}
-
-.extra-crown {
-  display: flex;
-  justify-content: center;
-  font-size: 2em;
 }
