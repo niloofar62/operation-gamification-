@@ -1,6 +1,6 @@
 import PeopleList from "./components/PeopleList";
 import Person from "./components/Person";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import "./components/PeopleList.css";
 // import Admin from "./About";
 import Display from "./Display";
@@ -8,6 +8,7 @@ import AverageScore from "./components/AverageScore";
 import { Link, useLocation } from "react-router-dom";
 import GameRules from "./components/GameRules";
 import AnotherPage from "./components/AnotherPage";
+import LoginForm from "./components/LoginForm";
 import Form from "./components/Form";
 
 const API_KEY = "AIzaSyDyVz5IVWZi-9fa4zocg4ZcE1MXMn5WTfk";
@@ -79,9 +80,16 @@ function App() {
   // const mainLocation = useLocation();
   const displayLocation = useLocation();
   const adminLocation = useLocation();
+  const loginLocation = useLocation();
 
   const handleSubmit = (newValue) => {
     setRules(newValue);
+  };
+
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
   };
 
   return (
@@ -93,7 +101,20 @@ function App() {
         <Link to="/display">
           <button>Display</button>
         </Link>
+        <Link to="/login">
+          <button>Login</button>
+        </Link>
       </nav>
+      {loginLocation.pathname === "/login" && (
+        <>
+          {isAuthenticated ? (
+            <p>Welcome! You are logged in.</p>
+          ) : (
+            <LoginForm onLogin={handleLogin} location="login" />
+          )}
+        </>
+      )}
+
       {displayLocation.pathname === "/display" && (
         <>
           <h1>Queen of Housekeeping Challenge</h1>
