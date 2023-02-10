@@ -97,7 +97,7 @@ function App() {
           <h4>Input Housekeeper Scores:</h4>
           <Form />
           <h4>Housekeepers Average Cleanliness Scores:</h4>
-          <AnotherPage data={data} />
+          <AnotherPage data={data} goal={goal} />
           <h4>Update Game Rules:</h4>
           <GameRules
             onSubmit={handleSubmit}

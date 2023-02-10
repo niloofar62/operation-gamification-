@@ -16,8 +16,9 @@ function AnotherPage({ data, goal }) {
     return (
       <div key={person.id}>
         <p>
-          {/* <p style={{ color: avg * 10 >= goal ? "green" : "red" }}> */}
-          {person.name} {avg.toFixed(2) * 10}%
+          <span style={{ color: avg * 10 >= goal ? "green" : "red" }}>
+            {person.name} {avg.toFixed(2) * 10}%
+          </span>
         </p>
       </div>
     );
