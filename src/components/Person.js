@@ -9,12 +9,11 @@ function Person({ data }) {
     return bAvg - aAvg;
   });
 
-  // Get the top 5 people
+  // Get 1st place
   const topFive = sortedData.slice(0, 1);
 
   const top = topFive.map((person) => (
     <div key={person.id}>
-      {/* <img src={"path/to/crown.jpg"} alt={`${person.name}'s crown`} /> */}
       <p>{person.name}</p>
     </div>
   ));

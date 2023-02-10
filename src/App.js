@@ -26,28 +26,6 @@ function App() {
   const [name, setName] = useState("");
   const [score, setScore] = useState("");
 
-  // // const handle submit of form
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(name);
-  //   setName("");
-  //   setScore("");
-  // };
-
-  // const formRef = useRef(null);
-  // const [loading, setLoading] = useState(false);
-  // const handleDataSubmit = (e) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-
-  //   fetch(scriptUrl, { method: "POST", body: new FormData(formRef.current) })
-  //     .then((res) => {
-  //       console.log("SUCCESSFULLY SUBMITTED");
-  //       setLoading(false);
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
-
   const fetchData = async () => {
     // const response = await fetch(API_URL);
     const response = await fetch(
@@ -76,7 +54,6 @@ function App() {
     fetchData();
   }, []);
 
-  // const mainLocation = useLocation();
   const displayLocation = useLocation();
   const adminLocation = useLocation();
   const loginLocation = useLocation();
@@ -123,7 +100,6 @@ function App() {
           <PeopleList data={data} />
           <h1>Game Rules</h1>
           <Display rules={rules} location="display" />
-          {/* <GameRules rules_data={rules} location="display" /> */}
           <h1> Queen </h1>
           <div className="top-five-box">
             <Person data={data} />
@@ -131,7 +107,6 @@ function App() {
           <AverageScore data={data} goal={goal} />
         </>
       )}
-      {/* {adminLocation.pathname === "/admin" && <Admin />} */}
       {adminLocation.pathname === "/" && (
         <>
           <h1>Game Rules</h1>
@@ -142,12 +117,10 @@ function App() {
           />
           <h1>Input Data</h1>
           <Form />
-          {/* <Form onSubmit={handleDataSubmit} ref={formRef} name="google-sheet" /> */}
 
           <h1>Queen of Housekeeping Challenge</h1>
           <PeopleList data={data} />
           <h1> Queen </h1>
-          {/* <GetData /> */}
           <div className="top-five-box">
             <Person data={data} />
           </div>

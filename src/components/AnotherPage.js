@@ -10,12 +10,6 @@ function AnotherPage({ data }) {
     return bAvg - aAvg;
   });
 
-  // const top = sortedData.map((person) => (
-  //   <div key={person.id}>
-  //     {/* <img src={"path/to/crown.jpg"} alt={`${person.name}'s crown`} /> */}
-  //     <p>{person.name}</p>
-  //   </div>
-  // ));
   const top = sortedData.map((person) => {
     const avg =
       person.scores.reduce((acc, curr) => acc + curr) / person.scores.length;

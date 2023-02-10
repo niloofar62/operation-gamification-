@@ -76,7 +76,6 @@ function PeopleList({ data }) {
     return (
       <div className="person-container" key={person.id}>
         {images}
-        {/* <p className="crown">👑</p> */}
         <p className="name">{person.name}</p>
       </div>
     );
