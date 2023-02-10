@@ -6,7 +6,6 @@ import three_jewel_crown from "../three_jewel_crown.svg";
 import two_jewel_crown from "../two_jewel_crown.svg";
 import one_jewel_crown from "../one_jewel_crown.svg";
 import zero_jewel_crown from "../zero_jewel_crown.svg";
-import newCrown from "../assets/newCrown.png";
 
 function PeopleList({ data }) {
   const people = data.map((person) => {
