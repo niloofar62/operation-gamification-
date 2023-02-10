@@ -2,7 +2,7 @@ import React from "react";
 
 import "../App.css";
 
-function AnotherPage({ data }) {
+function AnotherPage({ data, goal }) {
   // Sort the data array by average score
   const sortedData = data.sort((a, b) => {
     const aAvg = a.scores.reduce((acc, curr) => acc + curr) / a.scores.length;
@@ -15,8 +15,10 @@ function AnotherPage({ data }) {
       person.scores.reduce((acc, curr) => acc + curr) / person.scores.length;
     return (
       <div key={person.id}>
-        <p>Name: {person.name}</p>
-        <p>Average Score: {avg.toFixed(2) * 10}%</p>
+        <p>
+          {/* <p style={{ color: avg * 10 >= goal ? "green" : "red" }}> */}
+          {person.name} {avg.toFixed(2) * 10}%
+        </p>
       </div>
     );
   });

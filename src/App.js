@@ -108,26 +108,9 @@ function App() {
         </>
       )}
       {adminLocation.pathname === "/" && (
-        <>
-          <h1>Game Rules</h1>
-          <GameRules
-            onSubmit={handleSubmit}
-            rules_data={rules}
-            location="admin"
-          />
-          <h1>Input Data</h1>
-          <Form />
-
+        <div>
           <h1>Queen of Housekeeping Challenge</h1>
-          <PeopleList data={data} />
-          <h1> Queen </h1>
-          <div className="top-five-box">
-            <Person data={data} />
-          </div>
-          <h1>Sorted houskeeper</h1>
-          <AnotherPage data={data} />
-          <h1> AverageScore</h1>
-
+          <h4>Input Team Goal for Cleanliness Score:</h4>
           <input
             type="number"
             placeholder="Enter Goal Here..."
@@ -135,7 +118,17 @@ function App() {
             onChange={handleGoalChange}
           />
           <AverageScore data={data} goal={goal} />
-        </>
+          <h4>Input Housekeeper Scores:</h4>
+          <Form />
+          <h4>Housekeepers Average Cleanliness Scores:</h4>
+          <AnotherPage data={data} />
+          <h4>Update Game Rules:</h4>
+          <GameRules
+            onSubmit={handleSubmit}
+            rules_data={rules}
+            location="admin"
+          />
+        </div>
       )}
     </div>
   );
