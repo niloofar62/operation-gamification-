@@ -10,7 +10,6 @@ import GameRules from "./components/GameRules";
 import AnotherPage from "./components/AnotherPage";
 import LoginForm from "./components/LoginForm";
 import Form from "./components/Form";
-//import LoginForm from "./components/LoginForm";
 
 const API_KEY = "AIzaSyDyVz5IVWZi-9fa4zocg4ZcE1MXMn5WTfk";
 const SPREADSHEET_ID = "1HPkB9M2r9xvsFSkj2JW4NWIt9Wu4R51o7GJ-UqVpT4E";
@@ -93,6 +92,15 @@ function App() {
     setIsAuthenticated(true);
   };
 
+  // function Form() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const inputSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    window.location = adminLocation;
+  };
+
   return (
     <div>
       <nav>
@@ -144,7 +152,6 @@ function App() {
           />
           <h1>Input Data</h1>
           <Form />
-          {/* <Form onSubmit={handleDataSubmit} ref={formRef} name="google-sheet" /> */}
 
           <h1>Queen of Housekeeping Challenge</h1>
           <PeopleList data={data} />
