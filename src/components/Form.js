@@ -30,6 +30,7 @@ function Form() {
     e.preventDefault();
     setSubmitted(true);
     window.location = "/";
+    document.getElementById("form").reset();
   };
   return (
     <>
@@ -50,7 +51,14 @@ function Form() {
         <label>Score</label>
         <input name="entry.2014535538" type="number" placeholder="Score" />
         <br />
-        <input type="submit" value="Send" />
+        <input type="submit" value="Add" />
+        <div>
+          <input
+            // type="reset"
+            value="Update"
+            onClick={() => window.location.reload()}
+          />
+        </div>
       </form>
     </>
   );

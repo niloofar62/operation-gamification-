@@ -80,9 +80,6 @@ function App() {
         <Link to="/login">
           <button>Login</button>
         </Link>
-        <Link to="/login">
-          <button>Login</button>
-        </Link>
       </nav>
       {loginLocation.pathname === "/login" && (
         <>
