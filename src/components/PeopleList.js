@@ -1,7 +1,11 @@
 import React from "react";
 import "./PeopleList.css";
 import five_jewel_crown from "../five_jewel_crown.svg";
-import image1 from "../assets/image1.png";
+import four_jewel_crown from "../four_jewel_crown.svg";
+import three_jewel_crown from "../three_jewel_crown.svg";
+import two_jewel_crown from "../two_jewel_crown.svg";
+import one_jewel_crown from "../one_jewel_crown.svg";
+import zero_jewel_crown from "../zero_jewel_crown.svg";
 import newCrown from "../assets/newCrown.png";
 
 function PeopleList({ data }) {
@@ -16,59 +20,54 @@ function PeopleList({ data }) {
       if (jowelsEarned >= 5) {
         images.push(
           <img
-           // className="crown"
-            //src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/066/351/original/5jewelCrown.png?1675786668"
-            // src="path/to/five-or-more-jowels-image.png"
-            // src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/066/351/original/5jewelCrown.png?1675786668"
-           // src={five_jewel_crown}
-
-            alt="five or more jowels"
+            className="crown"
+            src={five_jewel_crown}
+            alt="crown with five jewels"
           />
         );
         jowelsEarned -= 5;
       } else if (jowelsEarned === 4) {
         images.push(
-          //  <img src="path/to/four-jowels-image.png" alt="four jowels" />
           <img
-            src="https://adad18.slack.com/files/U03SXQ4J8LD/F04NUEHP2QG/4_jewel_crown.svg"
-            alt="four jowels"
+            className="crown"
+            src={four_jewel_crown}
+            alt="crown with four jewels"
           />
         );
         break;
       } else if (jowelsEarned === 3) {
         images.push(
-          // <img src="path/to/three-jowels-image.png" alt="three jowels" />
           <img
-            src="https://adad18.slack.com/files/U03SXQ4J8LD/F04N77X5DV2/3_jewel_crown.svg"
-            alt="three jowels"
+            className="crown"
+            src={three_jewel_crown}
+            alt="crown with three jewels"
           />
         );
         break;
       } else if (jowelsEarned === 2) {
         images.push(
-          // <img src="path/to/two-jowels-image.png" alt="two jowels" />
           <img
-            src="https://adad18.slack.com/files/U03SXQ4J8LD/F04NUEHS62C/2_jewel_crown.svg"
-            alt="two jowels"
+            className="crown"
+            src={two_jewel_crown}
+            alt="crown with two jewels"
           />
         );
         break;
       } else if (jowelsEarned === 1) {
         images.push(
-          // <img src="path/to/zero-jowels-image.png" alt="zero jowels" />
           <img
-            src={image1}
-            // src="https://adad18.slack.com/files/U03SXQ4J8LD/F04NHCX73S5/1_jewel_crown.svg"
-            alt="one jowels"
+            className="crown"
+            src={one_jewel_crown}
+            alt="crown with one jewel"
           />
         );
         break;
       } else if (jowelsEarned === 0) {
         images.push(
           <img
-            src={newCrown}
-            // src="https://adad18.slack.com/files/U03SXQ4J8LD/F04NHCX73S5/1_jewel_crown.svg"
-            alt="zero jowels"
+            className="crown"
+            src={zero_jewel_crown}
+            alt="zero jewel crown"
           />
         );
         break;
