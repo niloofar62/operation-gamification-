@@ -43,8 +43,10 @@ function Form() {
       <form
         action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSc295XLjnv-F6OploZBOjowc6QCXcPCf98wfrNpgjl2ghhrDQ/formResponse"
         method="post"
+        // class="form"
+        // action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSc295XLjnv-F6OploZBOjowc6QCXcPCf98wfrNpgjl2ghhrDQ/formResponse"
         target="hidden_iframe"
-        onSubmit={inputSubmit}
+        onSubmit={submitted}
       >
         <label>Name</label>
         <input name="entry.40310430" type="text" placeholder="Name" />
