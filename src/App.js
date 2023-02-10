@@ -15,7 +15,7 @@ const SPREADSHEET_ID = "1HPkB9M2r9xvsFSkj2JW4NWIt9Wu4R51o7GJ-UqVpT4E";
 
 const API_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/A1:Z1000?key=${API_KEY}`;
 const rules1 =
-  "Earn jewels to fill your crown! Each survey with a 9-10 Room Cleanliness = 1 jewel, 5 jewels = $25. Whoever has the most jewels at the end of each month will be named,THE QUEEN OF HouseKEEPING,And will win an additional $50!";
+  "Earn jewels to fill your crown! Each survey with a 9-10 Room Cleanliness Score = 1 jewel, 5 jewels = $25. Whoever has the most jewels at the end of each month will be named,THE QUEEN OF HOUSEKEEPING, and will win an additional $50!";
 
 function App() {
   const [data, setData] = useState([]);
@@ -69,42 +69,18 @@ function App() {
   };
 
   return (
-    <div>
-      <nav>
-        <Link to="/">
-          <button>Admin</button>
-        </Link>
-        <Link to="/display">
-          <button>Display</button>
-        </Link>
-        <Link to="/login">
-          <button>Login</button>
-        </Link>
-        <Link to="/login">
-          <button>Login</button>
-        </Link>
-      </nav>
-      {loginLocation.pathname === "/login" && (
-        <>
-          {isAuthenticated ? (
-            <p>Welcome! You are logged in.</p>
-          ) : (
-            <LoginForm onLogin={handleLogin} location="login" />
-          )}
-        </>
-      )}
-
+    <div className="page">
       {displayLocation.pathname === "/display" && (
         <>
           <h1>Queen of Housekeeping Challenge</h1>
-          <PeopleList data={data} />
-          <h1>Game Rules</h1>
+          <AverageScore data={data} goal={goal} />
+          <h4>Game Rules</h4>
           <Display rules={rules} location="display" />
-          <h1> Queen </h1>
-          <div className="top-five-box">
+          <h4> Queen </h4>
+          <div className="queen">
             <Person data={data} />
           </div>
-          <AverageScore data={data} goal={goal} />
+          <PeopleList data={data} />
         </>
       )}
       {adminLocation.pathname === "/" && (
@@ -130,6 +106,26 @@ function App() {
           />
         </div>
       )}
+      <nav>
+        <Link to="/">
+          <button>Admin</button>
+        </Link>
+        <Link to="/display">
+          <button>Display</button>
+        </Link>
+        {/* <Link to="/login">
+          <button>Login</button>
+        </Link> */}
+      </nav>
+      {/* {loginLocation.pathname === "/login" && (
+        <>
+          {isAuthenticated ? (
+            <p>Welcome! You are logged in.</p>
+          ) : (
+            <LoginForm onLogin={handleLogin} location="login" />
+          )}
+        </>
+      )} */}
     </div>
   );
 }
