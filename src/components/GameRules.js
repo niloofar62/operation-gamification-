@@ -20,7 +20,9 @@ const GameRules = ({ rules_data, onSubmit }) => {
           onChange={(e) => setValue(e.target.value)}
           style={{ height: "200px" }}
         />
-        <button type="submit">Update</button>
+        <div>
+          <button type="submit">Update</button>
+        </div>
       </form>
       <p>{value}</p>
     </div>

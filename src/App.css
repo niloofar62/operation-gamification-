@@ -10,9 +10,8 @@
   text-align: center;
   padding: 15px;
   position: relative;
-
-  background-image: url(./assets/landscape-g9e816f00c_1920.png);
-  ;
+  background-image: url(./assets/landscape-Edited.png);
+  /* background-image: url(./assets/landscape-g9e816f00c_1920.png); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -65,5 +64,14 @@ h1 {
 
 .crown {
   transform: scale(2.75);
+
+}
+
+.queen{
+  font-family: cursive;
+  font-size: 25px;
+  font-weight: bolder;
+  border-image: url(./assets/background-g9017259b4_1920.jpg)2 round;
+  border: 40px solid transparent;
 
 }

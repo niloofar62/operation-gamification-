@@ -1,7 +1,7 @@
 import React from "react";
 import "../App.css";
 
-function Person({ data }) {
+function CurrentQueen({ data }) {
   // Sort the data array by average score
   const sortedData = data.sort((a, b) => {
     const aAvg = a.scores.reduce((acc, curr) => acc + curr) / a.scores.length;
@@ -14,11 +14,11 @@ function Person({ data }) {
 
   const top = topFive.map((person) => (
     <div key={person.id}>
-      <p>{person.name}</p>
+      <p>Queen {person.name}</p>
     </div>
   ));
 
   return <div>{top}</div>;
 }
 
-export default Person;
+export default CurrentQueen;
