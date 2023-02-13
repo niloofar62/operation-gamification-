@@ -8,13 +8,14 @@ import GameRules from "./components/GameRules";
 import RankedList from "./components/RankedList";
 import Form from "./components/Form";
 import CurrentQueen from "./components/CurrentQueen";
+import MostJewels from "./components/MostJewels";
 
 const API_KEY = "AIzaSyDyVz5IVWZi-9fa4zocg4ZcE1MXMn5WTfk";
 const SPREADSHEET_ID = "1HPkB9M2r9xvsFSkj2JW4NWIt9Wu4R51o7GJ-UqVpT4E";
 
 const API_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/A1:Z1000?key=${API_KEY}`;
 const rules1 =
-  "Earn jewels to fill your crown! Each survey with a 9-10 Room Cleanliness Score = 1 jewel, 5 jewels = $25. Whoever has the highest Room Cleanliness Score % at the end of each month will be named,THE QUEEN OF HOUSEKEEPING, and will win an additional $50!";
+  "Earn jewels to fill your crown! Each survey with a 9-10 Room Cleanliness Score = 1 jewel, 5 jewels = $25. The housekeeper with the most jewels at the end of each month will be named,THE QUEEN OF HOUSEKEEPING, and will win an additional $50!";
 
 function App() {
   const [data, setData] = useState([]);
@@ -68,12 +69,17 @@ function App() {
       {displayLocation.pathname === "/display" && (
         <>
           <h1>Queen of Housekeeping Challenge</h1>
-          <AverageScore data={data} goal={goal} />
-          <h4>Game Rules</h4>
-          <Display rules={rules} location="display" />
-          <div className="queen">
-            <CurrentQueen data={data} />{" "}
+          <div className="average-score">
+            <AverageScore data={data} goal={goal} />
           </div>
+          <div className="game-rules">
+            <h4>Game Rules</h4>
+            <Display rules={rules} location="display" />
+          </div>
+          <div className="queen">
+            <MostJewels data={data} />
+          </div>
+
           <PeopleList data={data} />
         </>
       )}
@@ -100,7 +106,7 @@ function App() {
           />
         </div>
       )}
-      <nav>
+      <nav className="nav">
         <Link to="/">
           <button>Admin</button>
         </Link>

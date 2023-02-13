@@ -68,10 +68,10 @@ h1 {
 }
 
 .queen{
-  max-width: 200px;
+  max-width: 300px;
   max-height: auto;
   font-family: cursive;
-  font-size: 25px;
+  font-size: 50px;
   font-weight: bolder;
   border: 1px solid transparent;
   /* border-radius: 25px; */
@@ -84,4 +84,21 @@ h1 {
   margin-left: auto;
   margin-right: auto;
 
+}
+
+.average-score{
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+.game-rules{
+  max-width: 40%;
+  max-height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+}
+
+.nav{
+  padding: 15px
 }
