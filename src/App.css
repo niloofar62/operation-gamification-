@@ -1,12 +1,28 @@
-.page {
+/* .page {
   text-align: center;
   border: 40px solid transparent;
   padding: 15px;
   border-image: url("https://img.freepik.com/free-photo/blue-glitter-texture_125540-1621.jpg?w=1480&t=st=1676060668~exp=1676061268~hmac=a0f3a5221f3715831d21ffc69334a26534435e3f6bd401d5c1b3b023aa4e9f49") 50 round;
   background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/066/891/original/Untitled_design.png?1676064294);
   background-size: 100%;
+} */
+.page {
+  text-align: center;
+  padding: 15px;
+  position: relative;
+
+  background-image: url(./assets/landscape-g9e816f00c_1920.png);
+  ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* options below */
+  /* filter: blur(5px); */
+  /* filter:brightness(50%); */
+  /* opacity: 0.5; */
 }
-h1{
+
+h1 {
   font-family: cursive;
   font-size: 60px;
 }
@@ -41,12 +57,13 @@ h1{
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-.crown{
+.crown {
   transform: scale(2.75);
 
 }
