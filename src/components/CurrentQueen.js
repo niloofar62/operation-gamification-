@@ -14,7 +14,7 @@ function CurrentQueen({ data }) {
 
   const top = topFive.map((person) => (
     <div key={person.id}>
-      <p>Queen {person.name}</p>
+      <p> 🏰 Queen {person.name} 🏰</p>
     </div>
   ));
 
