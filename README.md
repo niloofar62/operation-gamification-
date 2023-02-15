@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Queen of Housekeeping Challenge - Operation Gamification
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Overview**
+This application simulates employee contests, particularly the Queen of Housekeeping Challenge. It is modeled after Kindra’s employee bulletin board for housekeepers, and would essentially serve as a digital bulletin board with pre - made designs that to be displayed via a tv or projector for employees. It currently features a page for admin and a page for game board. It is especially designed to help managers or administrators run employee contests at scale, specifically the Queen of Housekeeping Challenge.
 
-## Available Scripts
+**Table of Contents**
 
-In the project directory, you can run:
+- Admin Page
+- Game Board
+- Installation
+- Usage
+- Future Development
+- Credits
 
-### `yarn start`
+**Admin Page :**
+The admin page allows the manager or administrator to add employee names, survey scores, track department goals and employee averages, and create and update game rules. It allows them to track employee data, create and update game rules, and engage employees to drive participation and engagement. The application leverages Google Forms and Google Sheets as a backend storage solution and data validation is set up with Google Forms.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Game Board (Display):**
+The home gameboard displays the title of the challenge or game, each housekeeper's crown(s) with their name and jewel(s), and the rules of the game. The display page allows each employee to track their own place, and the current winner is displayed as the Queen.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Installation**
+To use this application, you will need the following dependencies:
 
-### `yarn test`
+- React.js
+- Node.js
+- Google Developer account
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To install the application, follow the steps below:
 
-### `yarn build`
+1. Clone this repository.
+2. Install the Command Line Interface by running yarn install.
+3. Install dependencies by running yarn install.
+4. To start the server, run yarn start.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Usage**
+To use this application, follow the steps below:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Navigate to the admin page to add employee names, survey scores, track department goals, and employee averages, and create and update game rules.
+2. View the home gameboard to see the title of the challenge or game, each housekeeper's crown(s) with their name and jewel(s), and the rules of the game.
+3. Navigate to the display page to track your own place and see the current winner as the Queen.
+4. Please note that this application leverages Google Forms and Google Sheets as a backend storage solution and data validation is set up with Google Forms.
+5. Visit our website to see deployed version of application: https://operation-gamification.netlify.app/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Credits**
+This project was developed by Kindra Greenawalt, Neema Humphries and Niloofar Nayebihezaveh.
 
-### `yarn eject`
+Link to our team’s Github pages:
+Kindra: https://github.com/kkgre257
+Neema: https://github.com/n2020h
+Niloo: https://github.com/niloofar62
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Special thanks to Ada Developer’s Academy for making this project possible.
