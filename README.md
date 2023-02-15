@@ -1,7 +1,7 @@
 # Queen of Housekeeping Challenge - Operation Gamification
 
 **Overview**
-This application simulates employee contests, particularly the Queen of Housekeeping Challenge. It is modeled after Kindra’s employee bulletin board for housekeepers, and would essentially serve as a digital bulletin board with pre - made designs that to be displayed via a tv or projector for employees. It currently features a page for admin and a page for game board. It is especially designed to help managers or administrators run employee contests at scale, specifically the Queen of Housekeeping Challenge.
+This application simulates employee contests, particularly the Queen of Housekeeping Challenge. It is modeled after Kindra’s employee bulletin board for housekeepers, and would essentially serve as a digital bulletin board with pre - made designs that to be displayed via a tv or projector for employees. It currently features a page for admin and a page for game board. It is especially designed to help managers or administrators run employee contests at scale, specifically the Queen of Housekeeping Challenge. Visit our website to see deployed version of application: https://operation-gamification.netlify.app/
 
 **Table of Contents**
 
@@ -39,7 +39,7 @@ To use this application, follow the steps below:
 2. View the home gameboard to see the title of the challenge or game, each housekeeper's crown(s) with their name and jewel(s), and the rules of the game.
 3. Navigate to the display page to track your own place and see the current winner as the Queen.
 4. Please note that this application leverages Google Forms and Google Sheets as a backend storage solution and data validation is set up with Google Forms.
-5. Visit our website to see deployed version of application: https://operation-gamification.netlify.app/
+5. This project was deployed using Netlify, for more information see Netlify documentation at netlify.com. 
 
 **Credits**
 This project was developed by Kindra Greenawalt, Neema Humphries and Niloofar Nayebihezaveh.
