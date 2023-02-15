@@ -1,4 +1,4 @@
-# Queen of Housekeeping Challenge - Operation Gamification
+# Operation Gamification: Queen of Housekeeping Challenge
 
 **Overview**
 This application simulates employee contests, particularly the Queen of Housekeeping Challenge. It is modeled after Kindra’s employee bulletin board for housekeepers, and would essentially serve as a digital bulletin board with pre - made designs that to be displayed via a tv or projector for employees. It currently features a page for admin and a page for game board. It is especially designed to help managers or administrators run employee contests at scale, specifically the Queen of Housekeeping Challenge. Visit our website to see deployed version of application: https://operation-gamification.netlify.app/
